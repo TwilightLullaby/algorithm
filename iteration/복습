@@ -1,0 +1,85 @@
+#include <stdio.h>
+//반환o 플러스
+//int plus1(int num1, int num2)
+//{
+//	return num1 + num2;
+//}
+//
+//int main(void) {
+//	int num1 = 0, num2 = 0, num3=0;
+//	scanf_s("%d %d", &num1, &num2);
+//	num3=plus1(num1, num2);
+//	printf("%d", num3);
+
+
+
+
+
+//반환 x 플러스 ++손좀 봐야됨
+//void plus1(, int num3)
+//{
+//  int num1, num2;
+//	num3 = num1 + num2;
+//	printf("%d", num3);
+//
+//}
+//
+//int main(void) {
+//	int num1 = 0, num2 = 0, num3=0;
+//	scanf_s("%d %d", &num1, &num2);
+//	plus1(num1, num2, num3);
+
+	// 99단
+	//void gugu(int N)	
+	//{
+	//	int i = 1, j = 1 , temp=0;
+	//	for (i ; i <= N; i++) {//1부터 n까지 
+	//		for (j ; j <= 9; j++) {//n*9
+	//			N*j;
+	//			printf("%d * %d = %d\n", N, j, N*j);
+	//		}
+	//	}
+	//}
+	//int main(void) {
+	//
+	//int N=0;
+	//scanf_s("%d", &N);
+	//gugu(N);
+	
+	//함수로 hello 값을출력하세요
+	/*void hello()
+	{
+		printf("hello");
+	}
+
+	int main(void) 
+	{
+		hello();
+	}
+	*/
+  
+  
+  #include <stdio.h>
+#include <string.h>
+int mystrcmp(char a[10], char b[10]) 
+{
+	for(int i=0 ; i<=10 ; i++)
+	{
+		if(a[i] == b[i])
+			
+	}	
+}
+
+int main(void)
+{
+	char a[10], b[10];
+	scanf_s("%s %s", a, b);
+	mystrcmp(a, b);
+
+
+	return 0;
+}
+
+strcat
+strlen
+strcmp
