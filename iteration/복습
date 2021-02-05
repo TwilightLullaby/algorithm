@@ -83,3 +83,138 @@ int main(void)
 strcat
 strlen
 strcmp
+----------------------------------------------------------------------
+#include <stdio.h>
+#include <string.h>
+//strcmp 포인터 x
+//int mystrcmp(char a[10], char b[10])
+//{
+//	int i = 0;
+//	for ( i ; i <= 10; i++)
+//	{
+//		if (a[i] != b[i])
+//		{
+//			return 0;
+//			break;
+//		}
+//		else if (a[i] == b[i])
+//		{
+//			if (a[i]=='\0' && b[i]=='\0')
+//			{
+//				return 1;
+//				break;
+//			}
+//		}
+//	}
+//}
+//int main(void)
+//{
+//	char a[10], b[10];
+//	scanf_s("%s %s", a, sizeof(a), b, sizeof(b));
+//	printf("strcmp : %d\n", mystrcmp(a, b));
+//	return 0;
+//}
+
+
+//strlen 포인터  x
+//int mystrlen(char len[])
+//{
+//	int cnt = 0;
+//	while(len[cnt] != '\0')
+//	{
+//		cnt++;
+//	}
+//	return cnt;
+//}
+//
+//int main(void)
+//{
+//	char a[256];
+//	scanf_s("%s", a, sizeof(a));
+//	printf("strlen : %d\n", mystrlen(a));
+//	return 0;
+//}
+//
+//strcat 포인터 x
+
+//char mystrcat(char a[256], char b[256])
+//{
+//	int cnt = 0;
+//	int i = 0;
+//	while(a[cnt] != '\0')
+//	{
+//		cnt++;
+//	}     
+//	return a;
+//	if (a[cnt] == '\0') 
+//		{
+//			return b;
+//	 	}
+//}
+//
+//int main(void)
+//{
+//	char a[256], b[256];
+//	printf("첫번쨰 문자열\n");
+//	scanf_s("%s", a, sizeof(a));
+//	printf("두번쨰 문자열\n");
+//	scanf_s("%s", b, sizeof(b));
+//	printf("strcat : %s\n", mystrcat(a, b));	
+//	return 0;
+//}
+
+
+
+
+//strlen 포인터
+//int mystrlen(char* len)
+//{
+//    int i = 0;	
+//	while (len[i] != '\0')
+//	{
+//		i++;
+//	}
+//    return i;
+//}
+//int main(void)
+//{
+//	char a[256];
+//	scanf_s("%s", a, sizeof(a));
+//	printf("strlen : %d\n", mystrlen(a));
+//	return 0;
+//}
+
+
+
+
+//strcmp 포인터
+
+int mystrlen(char* len)
+{
+    int i = 0;	
+	while (len[i] != '\0')
+	{
+		i++;
+	}
+    return i;
+}
+int mystrcmp(const char* a,const char* b)
+{
+	if(mystrlen(a) == mystrlen(b))
+	{
+		for(int i=0 ;  i<a[i] ; i++)
+		{
+			if (a[i] != b[i])
+				return 0;
+		}
+		return 1;
+	}
+	return 0;
+}
+int main(void)
+{
+	char a[10], b[10];
+	scanf_s("%s %s", a, sizeof(a), b, sizeof(b));
+	printf("strcmp : %d\n", mystrcmp(a, b));
+	return 0;
+}
