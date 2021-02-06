@@ -217,8 +217,22 @@ int main(void)
 	return 0;
 }
 -------------------------------------
-디버깅 f9를 걸어 브레이크포인트를 설정하고
-f5를 눌러 실행한다음 f10으로 누르면서 하나하나 체크가 가능하다
-브레이크랑 리턴(반환)이랑 뭐가 다른가? 
-1.브레이크는 그 뒤로도 코드가 작동?리턴은 작동 중지?
-리턴은 함수를 빠져나오고 브레이크는 포문이나 와일문 빠져나옴
+book book1;
+	book1.id=10;
+	printf("제목\n");
+	scanf_s("%s", book1.bookname, sizeof(book1.bookname));
+	printf("저자\n");
+	scanf_s("%s", book1.bookmake, sizeof(book1.bookmake));
+	printf("카테고리\n");
+	scanf_s("%s", book1.bookka, sizeof(book1.bookka));
+	printf("대출여부\n");
+	scanf_s("%s", book1.boool, sizeof(book1.boool));
+	printf("출판사\n");
+	scanf_s("%s", book1.bookwhere, sizeof(book1.bookwhere));
+	//
+	printf("아이디 : %d\n", book1.id);
+	printf("제목 : %s\n", book1.bookname);
+	printf("저자 : %s\n", book1.bookmake);
+	printf("출판사 : %s\n", book1.bookwhere);
+	printf("대출여부 : %s\n", book1.boool);
+	printf("카테고리 : %s\n", book1.bookka);
