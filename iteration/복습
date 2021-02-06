@@ -236,3 +236,47 @@ book book1;
 	printf("출판사 : %s\n", book1.bookwhere);
 	printf("대출여부 : %s\n", book1.boool);
 	printf("카테고리 : %s\n", book1.bookka);
+	
+	----------------------------------------------------
+	#include <stdio.h>
+typedef struct _book
+{
+	char id; //아이디
+	char bookname[256]; //책이름
+	char bookmake[256]; //저자
+	char bookka[256]; //카테고리
+	char bookwhere[256];	//출판시
+	char boool[256];	//대출여부
+}book;
+book createbook()
+{
+	char booklist;
+	book book;
+	printf("id\n");
+	scanf_s("%s", book.id, sizeof(book.id));
+	printf("제목\n");
+	scanf_s("%s", book.bookname, sizeof(book.bookname));
+	printf("저자\n");
+	scanf_s("%s", book.bookmake, sizeof(book.bookmake));
+	printf("카테고리\n");
+	scanf_s("%s", book.bookka, sizeof(book.bookka));
+	printf("대출여부\n");
+	scanf_s("%s", book.boool, sizeof(book.boool));
+	printf("출판사\n");
+	scanf_s("%s", book.bookwhere, sizeof(book.bookwhere));
+
+	printf("아이디 : %s\n", book.id);
+	printf("제목 : %s\n", book.bookname);
+	printf("저자 : %s\n", book.bookmake);
+	printf("출판사 : %s\n", book.bookwhere);
+	printf("대출여부 : %s\n", book.boool);
+	printf("카테고리 : %s\n", book.bookka);
+}
+int main(void)
+{
+	book books[10];
+	book book = createbook();
+	books[0] = book;
+	return 0;
+}
+
