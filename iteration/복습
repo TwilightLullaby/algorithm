@@ -280,3 +280,108 @@ int main(void)
 	return 0;
 }
 //TODO는 무언가 내가 무엇을 만들었는지? 과거의 관례같은거다 자주쓰는듯 개발자들은
+
+-----------------------------------------------------------------------------------
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+typedef struct _book
+{
+	char id[256]; //아이디
+	char bookname[256]; //책이름
+	char bookmake[256]; //저자
+	char kategorie[256]; //카테고리
+	char bookwhere[256];	//출판시
+	char boool[256];	//대출여부
+}book;
+book createbook()
+{
+	book book;
+	printf("id\n");
+	scanf_s("%s", book.id, sizeof(book.id));
+	printf("제목\n");
+	scanf_s("%s", book.bookname, sizeof(book.bookname));
+	printf("저자\n");
+	scanf_s("%s", book.bookmake, sizeof(book.bookmake));
+	printf("카테고리\n");
+	scanf_s("%s", book.kategorie, sizeof(book.kategorie));
+	printf("대출여부\n");
+	scanf_s("%s", book.boool, sizeof(book.boool));
+	printf("출판사\n");
+	scanf_s("%s", book.bookwhere, sizeof(book.bookwhere));
+	
+	return book;
+}	
+void printbook(book x)
+{
+	printf("%s\n", x.id);
+	printf("%s\n", x.bookname);
+	printf("%s\n", x.bookwhere);
+	printf("%s\n", x.boool);
+	printf("%s\n", x.kategorie);
+	printf("%s\n", x.bookmake);
+}
+	int main(void)
+{
+	int a = 0, i = 1, k=0;
+	book books[3];
+	for (i ; i < 3 ; i++){
+		{
+			printf("책 정보를 입력하세요 %d번째 책\n", i);
+			books[i] = createbook();
+		}
+	}
+	while(1)
+	{
+		printf("무엇을 하겠습니까?\n");
+		printf("0.종료 || 1.검색 || 2.삭제 || 3.변경 || 4.생성\n");
+		scanf_s("%d", &a);
+		if(a == 0)
+		{
+			printf("종료합니다\n");
+			exit(0);
+		}
+		if(a == 1)
+		{
+			printf("몇번째 책을 검색하고 싶나요?\n");
+			for (int j = 1; j < 3; j++) 
+			{
+				printf("책 제목 %d : %s\n", j, books[j].bookname);
+			}
+			scanf_s("%d", &i);
+			switch(i)
+			{
+				
+				case 1: 
+				{
+					printbook(books[i]);
+					break;
+				}
+				case 2:
+				{
+					printbook(books[i]);
+					break;
+				}
+				default:
+				{
+					printf("잘못된 정보입니다\n");
+					break;
+				}
+			}
+		}
+		if (a == 2)
+		{
+			printf("몇번째 책을 삭제하고 싶나요\n");
+			for (int j = 1; j < 3; j++)
+			{
+				printf("책 제목 %d : %s\n", j, books[j].bookname);
+			}
+			scanf_s("%d", &k);
+			switch (k) 
+			{
+
+			}
+		}
+	}
+	return 0;
+}
