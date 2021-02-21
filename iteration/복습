@@ -895,7 +895,7 @@ char* inputStr(char* printStr) { //문자열 입력받기
 }//전체적인 흐름은 문자열을 입력받고 반환하는것
 
 int inputNumber(char* printStr) { //숫자 입력받기
-	printf("%s", printStr);
+	printf("%s", printStr); //그..뭐라해야하지 매개변수를 출력해줌 예시로 스우치안에있는 저걸 보면 된다
 	int inputNum = 0;//선언
 	scanf_s("%d", &inputNum);//입력
 	return inputNum;//반환
