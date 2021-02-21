@@ -881,9 +881,9 @@ void Menu() {
 	printf("================\n");
 }//기본적인 메뉴 인터페이스?
 
-char* inputStr(char* printStr) { //문자열 입력받기
+char* inputStr(char* printStr) { //매개변수?에 있는 문자열 포인터로 가져와서
 	getch();//엔터를 넘기는데 씀 아마도 쓸대없는 엔터 받을바에는 스킵하는 용도로 쓰인거 같음
-	printf("%s", printStr);//??
+	printf("%s", printStr);//위에 문자열 포인터가져와서 프린트
 	char inputStr[STR_MAX_SIZE];//문자열 받을수있는 최대길이
 	scanf_s("%s", inputStr, STR_MAX_SIZE);
 
@@ -894,7 +894,7 @@ char* inputStr(char* printStr) { //문자열 입력받기
 	return str;//문자열 반환
 }//전체적인 흐름은 문자열을 입력받고 반환하는것
 
-int inputNumber(char* printStr) { //숫자 입력받기
+int inputNumber(char* printStr) { //위에랑 똑같이 매개변수?인자값? 뭐라고해야하지 쩄든 ()안에있는 문자열 출력 아마 썜이 최대한 줄일려고 이런 장치를 건게 아닐까 
 	printf("%s", printStr); //그..뭐라해야하지 매개변수를 출력해줌 예시로 스우치안에있는 저걸 보면 된다
 	int inputNum = 0;//선언
 	scanf_s("%d", &inputNum);//입력
