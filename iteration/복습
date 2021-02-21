@@ -853,9 +853,9 @@ int main()
 	return 0;
 }
 -----------------------------------------------------------------------------------------------------------
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <stdio.h>//스탠다드 인풋아웃풋
+#include <stdlib.h>//스탠다드 라이브러리 추가?함수받는건데 기억안남
+#include <string.h>//스탠다드 ? cmp,len사용하기위해
 
 typedef struct _Book {
 	int id;
@@ -864,7 +864,7 @@ typedef struct _Book {
 		//문자열 포인터 이름선언
 
 #define SIZE 10 //1.배열에 넣을 상수값 전처리기로 넣음 2.Book books[size]를 전역변수로 쓰기위해서?
-#define STR_MAX_SIZE 20 //?
+#define STR_MAX_SIZE 20 //문자열 배열 길이
 
 int BookIndex = 0;//전역변수?
 Book* books[SIZE]; //전역변수?
@@ -889,14 +889,14 @@ char* inputStr(char* printStr){ //문자열 입력받기
 	int strLen = strlen(inputStr) + 1;
 	char* str = malloc(strLen);
 	strcpy_s(str, strLen, inputStr);
-
+	//sizeof는 앞에 선언을 했기에 안씀
 	return str;//문자열 반환
 }//전체적인 흐름은 문자열을 입력받고 반환하는것
 
 int inputNumber(char * printStr) { //숫자 입력받기
 	printf("%s", printStr);
-	int inputNum = 0;
-	scanf_s("%d", &inputNum);
+	int inputNum = 0;//선언
+	scanf_s("%d", &inputNum);//입력
 
 	return inputNum;
 }
@@ -920,9 +920,9 @@ void PrintBooks() {
 	for (int i = 0; i < BookIndex; i++) 		
 		PrintBook(books[i]);
 }
-//전체적이 흐름은 프린트인데 이제 딱 스위치에 들어가는 아마도 원하는 책을 호출해서프린트하는건가...?
+//전체적인 흐름은 프린트인데 모든책 프린트 하는거일듯?
 Book * SearchBook(char * str) {
-	int menuNum = inputNumber(str);
+	int menuNum/*1번이냐 2번이냐 */ = inputNumber(str);
 
 	int searchNumber = 0;
 	char* searchName = 0;
@@ -936,38 +936,37 @@ Book * SearchBook(char * str) {
 			if(book->id == searchNumber)
 				return book;
 		}
-		else {
-			if (searchNumber == 1)
+		else {//menuNum 2
+			if (searchNumber == 0)
 				searchNumber = inputStr("search id str");
 
 			if (!strcmp(book->name, searchName))
 				return book;
 		}			
 	}
-
 	return 0;
 }
-
+//전체적인 흐름은 
 Book * GetBook(char * str) {
 	Book* book = SearchBook(str);
 	PrintBook(book);
 
 	return book;
 }
-
+//전체적인 흐름은 다른 함수에 호출되는 용도
 void UpdateBook() {	
 	Book * book = GetBook("update 1 = id 2 = name");
 
 	book->id = inputNumber("update id");
-	free(book->name);
+	free(book->name);//이름 메모리 해제
 	book->name = inputStr("update Name");
 }
-
+//전체적인 흐름은 메모리 메모리 
 void DeleteBook() {		
 	Book* book = GetBook("delete 1 = id 2 = name");
 	free(book); // book 메모리 해제
 }
-//전체적인 흐름은 책 삭제
+//전체적인 흐름은 메모리 할당을 해제해서 책을 삭제시키는것
 int main() {
 	while (1) {	
 		Menu();//메뉴 함수 호출
