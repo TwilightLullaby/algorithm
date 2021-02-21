@@ -785,3 +785,70 @@ int main(void)
 	//}
 	return 0;
 }
+------------------------------------------------------------------------------
+새로짠거
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct _BOOK
+{
+	char id[256]; //아이디
+	char bookname[256]; //책이름
+	char bookmake[256]; //저자
+	char kategorie[256]; //카테고리
+	char bookwhere[256];	//출판시
+	char boool[256];	//대출여부
+	int del;
+}BOOK;
+void creatbook(BOOK *booklist, int *total)
+{
+	printf("id\n");
+	scanf_s("%s", booklist[*total].id, sizeof(booklist[*total].id));
+	printf("제목\n");
+	scanf_s("%s", booklist[*total].bookname, sizeof(booklist[*total].bookname));
+	printf("저자\n");
+	scanf_s("%s", booklist[*total].bookmake, sizeof(booklist[*total].bookmake));
+	printf("카테고리\n");
+	scanf_s("%s", booklist[*total].kategorie, sizeof(booklist[*total].kategorie));
+	printf("대출여부\n");
+	scanf_s("%s", booklist[*total].boool, sizeof(booklist[*total].boool));
+	printf("출판사\n");
+	scanf_s("%s", booklist[*total].bookwhere, sizeof(booklist[*total].bookwhere));
+	booklist[*total].del = 0;
+	*total+=1;
+}
+void searchbook(BOOK *booklist, int total, int N)
+{
+	for (int i=0 ; i<N ; i++) 
+	{
+		printf("검색할 책의 제목\n"booklist);
+	}
+}
+int main()
+{
+	int N = 0, total=0;
+	BOOK* booklist;
+	printf("도서관이 가질수있는 최대 책 갯수를 입력해주세요\n");
+	scanf_s("%d", &N);
+	booklist = malloc(sizeof(BOOK) * N);
+	while(1)
+	{
+		printf("무엇을 하시겠습니까?\n");
+		printf("1.책 추가하기\n");
+		printf("2.책 검색하기\n");
+		printf("3.책 변경하기\n");
+		printf("4.책 삭제하기\n");
+		printf("5.종료하기\n");
+		scanf_s("%d", &N);
+		if(N==1)
+		{
+			creatbook(booklist, &total);
+		}
+		if(N==2)
+		{
+			searchbook(booklist, total, N);
+		}
+	}
+	return 0;
+}
