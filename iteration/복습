@@ -941,7 +941,7 @@ Book * SearchBook(char * str) {
 			if (searchNumber == 0)
 				searchNumber = inputStr("search id str");
 
-			if (!strcmp(book->name, searchName))
+			if (!strcmp(book->name, searchName))//0이아니라면
 				return book;
 		}			
 	}
