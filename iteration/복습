@@ -881,7 +881,7 @@ void Menu() {
 	printf("================\n");
 }//기본적인 메뉴 인터페이스?
 
-char* inputStr(char* printStr) { //매개변수?에 있는 문자열 포인터로 가져와서
+char* inputStr(char* printStr) { //배열의 이름은 첫번째값의 주소 즉 그걸 가져오는거
 	getch();//엔터를 넘기는데 씀 아마도 쓸대없는 엔터 받을바에는 스킵하는 용도로 쓰인거 같음
 	printf("%s", printStr);//위에 문자열 포인터가져와서 프린트 아마 매개변수를 출력하는거 일듯
 	char inputStr[STR_MAX_SIZE];//문자열 받을수있는 최대길이
