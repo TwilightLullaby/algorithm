@@ -888,10 +888,9 @@ char* inputStr(char* printStr) { //배열의 이름은 첫번째값의 주소 �
 	scanf_s("%s", inputStr, STR_MAX_SIZE);
 
 	int strLen = strlen(inputStr) + 1;//아마 NULL값을 스캔받기위해 쓴거일듯?strcpy에서 복사할 원본문자열에 무조건 널값이 들어가야함
-	char* str = malloc(strLen);//
-	strcpy_s(str, strLen, inputStr);// 
-	//sizeof는 앞에 선언을 했기에 안씀
-	return str;//문자열 반환
+	char* str = malloc(strLen);//sizeof는 앞에 선언을 했기에 안씀 , 문자열길이만큼 메모리 할당
+	strcpy_s(str, strLen, inputStr);//inputStr을 str에 복사
+	return str;//복사한 str 반환
 }//전체적인 흐름은 문자열을 입력받고 반환하는것
 
 int inputNumber(char* printStr) { //위에랑 똑같이 매개변수?인자값? 뭐라고해야하지 쩄든 ()안에있는 문자열 출력 아마 썜이 최대한 줄일려고 이런 장치를 건게 아닐까 
