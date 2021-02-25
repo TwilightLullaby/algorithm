@@ -909,7 +909,7 @@ void insertBook() {
 	book->id = inputNumber("create book id");
 	book->name = inputStr("create book name");
 
-	[BookIndex++] = book;
+	books[BookIndex++] = book;
 }
 //전체적인 흐름은 책을 만들고 반환하는 역할
 void PrintBook(Book* book) {
