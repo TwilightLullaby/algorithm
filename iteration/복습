@@ -981,3 +981,105 @@ int main() {
 	}
 	return 0;
 }
+------------------------------------------------------------
+프로토타입
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct _Book
+{
+	int id; //아이디
+	char *name; //책이름
+	char *writer; //저자
+	char *kategorie; //카테고리
+	char *publisher;	//출판시
+	char *borrow;	//대출여부
+}Book;
+
+#define STR_MAX_SIZE 20
+#define SIZE 10
+
+int Bookindex = 0;
+Book* books[SIZE];
+void Menu()
+{
+	printf("================\n");
+	printf("1 : insertBook\n");
+	printf("2 : printBook\n");
+	printf("3 : searchBook\n");
+	printf("4 : updateBook\n");
+	printf("5 : deleteBook\n");
+	printf("6 : exit\n");
+	printf("================\n");
+}
+int InputNum(char *printstr)
+{
+	printf("%s", printstr);
+	int InputNum = 0;
+	scanf_s("%d", &InputNum);
+	return InputNum;
+}
+
+char *InputStr(char *printstr)
+{
+	getch();
+	printf("%s", printstr);
+	char InputStr[STR_MAX_SIZE];
+	scanf_s("%s", InputStr, STR_MAX_SIZE);
+
+	int strLen = strlen(InputStr) + 1;
+	char* str = malloc(strLen);
+	strcpy_s(str, strLen, InputStr);
+	return str;
+}
+
+void insertBook()
+{
+	Book* book = malloc(sizeof(Book));
+	book->id = InputNum("id : ");
+	book->name = InputStr("name : ");
+	book->borrow = InputStr("borrow : ");
+	book->publisher = InputStr("publisher : ");
+	book->writer = InputStr("writer : ");
+	book->kategorie = InputStr("kategorie : ");
+
+	books[Bookindex++] = book;
+}
+void printbook(Book *book)
+{
+	printf("print book id : %d\n", book->id);
+	printf("print book name : %s\n", book->name);
+	printf("print book borrow: %s\n", book->borrow);
+	printf("print book publisher : %s\n", book->publisher);
+	printf("print book writer : %s\n", book->writer);
+	printf("print book kategorie : %s\n", book->kategorie);
+}
+
+void printBooks()
+{
+	for(int i = 0 ; i<Bookindex ; i++)
+	{
+		printbook(books[i]);
+	}
+}
+
+int main(void)
+{
+	while(1)
+	{
+		Menu();
+		switch(InputNum("원하는 기능을 입력하세요 : "))	
+		{
+			case 1: insertBook(); break;
+			case 2: printBooks(); break;
+			/*case 3: searchBook(); break;
+			case 4: updateBook(); break;
+			case 5: deleteBook(); break;*/
+		}
+
+
+
+	}
+	return 0;
+}
