@@ -311,13 +311,12 @@ int Blocks[7][4][4][4] =
             {0,1,1,0},
             {0,0,1,0}
         },
-    }//ㄹ반대 
+    }//ㄹ반대
 };
 
 
 void Map()
 {
-
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),
         FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN |
         FOREGROUND_INTENSITY);
@@ -500,7 +499,7 @@ void Save()
     GameOver();
 }
 
-void TimeDown(int tick)        //시간이 지날때마다 Down
+void TimeDown()        //시간이 지날때마다 Down
 {
     int Millisecond = 500;
 
@@ -521,7 +520,6 @@ void TimeDown(int tick)        //시간이 지날때마다 Down
         Move();
         OldTime = CurTime;
     }
-    printf("%d", tick);
 }
 
 
@@ -858,7 +856,7 @@ void HighScoreOutput()
 
     if (fp == NULL)
     {
-        puts("score.txt 파일을 소스코드 c파일 있는 폴더에 만드세요 ㅎㅎ");
+        puts("");
         exit(0);
     }
 
@@ -883,8 +881,7 @@ void Waiting()    //깜빡거리는거 줄임
 
 int main()
 {
-    int key = 0;
-    int tick = 0;
+    int key;
     OldTime = clock();
     CursorView(0);
     Map();
@@ -894,8 +891,8 @@ int main()
     {
         Score();
         Explain();
-        TimeDown(tick++);
-        //HighScoreOutput();
+        TimeDown();
+ 
 
         if (_kbhit())
         {
@@ -921,7 +918,7 @@ int main()
                 break;
             case ESCAPE:
                 system("cls");
-                printf("게임종료"); 
+                printf("게임종료");
                 exit(0);
                 break;
             case z:
@@ -934,11 +931,11 @@ int main()
                 Rotation();
                 Move();
                 break;
-            /*case UP:
+            case UP:
                 Delete();
                 QuickDown();
                 Move();
-                break;*/
+                break;
             default:
                 break;
             }
